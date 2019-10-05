@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'nonce-a1b2c3d4'"
+    />
+    <title>electron_renderer_CSP_Sample</title>
+  </head>
+  <body>
+    <!-- The following won't work as inline event handlers are blocked -->
+    <!--
+      <button onclick="test()">Test</button>
+    -->
+
+    <button id="btn">Test</button>
+
+    <script nonce="a1b2c3d4" src="./renderer.js"></script>
+    <script nonce="a1b2c3d4">
+      document.getElementById('btn').addEventListener('click', test);
+    </script>
+
+    <!-- The following won't work as nonce value is incorrect -->
+    <script>
+      alert('test without/wrong nonce');
+    </script>
+  </body>
+</html>
