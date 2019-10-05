@@ -1,5 +1,1 @@
-alert('hi')
-
-function test(){
-    alert("test function")
-}
+alert('hi');function test(){alert("test function")}

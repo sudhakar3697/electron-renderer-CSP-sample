@@ -2,10 +2,16 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src -->
+    <!-- 
+      https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src 
+      https://report-uri.com/home/hash
+    -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="script-src 'nonce-a1b2c3d4'"
+      content="script-src 
+      'sha256-EjVhz22CrLnrY69c3dAwQhcjKhj92NZNEbcnS0HYdVw='
+      'sha-256-W5ag9Z0i5mtzQgCo8qCpIi7TKd9SwCQ3+7Mw+rbupg8=' 
+      'sha256-cTrxnsu2MYrJ4AEsY4nnNUSlM5Pmm18uomKIZnoo3QA='"
     />
     <title>electron_renderer_CSP_Sample</title>
   </head>
@@ -17,14 +23,22 @@
 
     <button id="btn">Test</button>
 
-    <script nonce="a1b2c3d4" src="./renderer.js"></script>
-    <script nonce="a1b2c3d4">
-      document.getElementById('btn').addEventListener('click', test);
+    <!-- Hash:  'sha256-EjVhz22CrLnrY69c3dAwQhcjKhj92NZNEbcnS0HYdVw=' -->
+    <script>alert('1');</script> 
+
+    <!-- 
+      https://w3c.github.io/webappsec-csp/#external-hash
+      https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
+    -->
+    <script integrity="sha-256-W5ag9Z0i5mtzQgCo8qCpIi7TKd9SwCQ3+7Mw+rbupg8=" src="./renderer.js"></script>
+    
+    <!-- Hash:  'sha256-cTrxnsu2MYrJ4AEsY4nnNUSlM5Pmm18uomKIZnoo3QA=' -->
+    <script>document.getElementById('btn').addEventListener('click', test);</script>
+
+    <!-- The following won't work as hash for the script isn't in CSP -->
+    <script>
+      alert('test2');
     </script>
 
-    <!-- The following won't work as nonce value is incorrect -->
-    <script>
-      alert('test without/wrong nonce');
-    </script>
   </body>
 </html>
