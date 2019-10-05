@@ -3,6 +3,7 @@ Running JS in electron renderers with CSP (https://stackoverflow.com/questions/5
 
 #### References
 
+https://github.com/electron/electron/blob/master/docs/tutorial/security.md#6-define-a-content-security-policy
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src
 
 https://stackoverflow.com/a/42924000/12167785 (nonce)
