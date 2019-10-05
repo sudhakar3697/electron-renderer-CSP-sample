@@ -1,6 +1,21 @@
 {
   "name": "electron_renderer_CSP_Sample",
   "version": "1.0.0",
+  "description": "A sample electron app for running JavaScript with CSP in renderers",
   "main": "main.js",
-  "author": "Sudhakar"
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/sudhakar3697/electron-renderer-CSP-sample",
+  "keywords": [
+    "Electron",
+    "Renderer",
+    "Content Security Policy",
+    "cross-site-scripting",
+    "data injection attack"
+  ],
+  "author": "sudhakar3697",
+  "devDependencies": {
+    "electron": "^6.0.11"
+  }
 }
