@@ -8,5 +8,5 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Polic
 https://stackoverflow.com/a/42924000/12167785 (nonce)
 
 https://w3c.github.io/webappsec-csp/#external-hash ( Allowing external JavaScript via hashes)
-https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity (SRI)
+https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity (Subresource Integrity-SRI)
 https://report-uri.com/home/hash (Script And Style Hasher)
